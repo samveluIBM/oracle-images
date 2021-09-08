@@ -1,0 +1,22 @@
+#DESCR RHEL 7.9 Install
+
+[RHEL79]
+name=RHEL 7.9 - $basearch
+baseurl=http://nis/yum/map/rhel/$basearch/79
+enabled=1
+gpgcheck=0
+skip_if_unavailable=1
+
+[RHEL79-HA]
+name=RHEL 7.9 - HA - $basearch
+baseurl=http://nis/yum/map/rhel/$basearch/79/addons/HighAvailability/
+enabled=1
+gpgcheck=0
+skip_if_unavailable=1
+
+[RHEL79-RS]
+name=RHEL 7.9 - RS - $basearch
+baseurl=http://nis/yum/map/rhel/$basearch/79/addons/ResilientStorage/
+enabled=1
+gpgcheck=0
+skip_if_unavailable=1
