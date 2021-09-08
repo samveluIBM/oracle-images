@@ -1,0 +1,7 @@
+#DESCR Master Reposity List
+
+[Repos]
+name=Repos
+baseurl=http://nis/yum/repos
+enabled=1
+gpgcheck=0
