@@ -69,7 +69,7 @@ if $SLIMMING; then
     # All installer files
     rm -rf $ORACLE_HOME/lib/*.zip && \
     # OUI backup
-    rm -rf $ORACLE_HOME/inventory/backup/* && \
+    # rm -rf $ORACLE_HOME/inventory/backup/* && \
     # Network tools help
     rm -rf $ORACLE_HOME/network/tools/help && \
     # Database upgrade assistant
@@ -81,7 +81,7 @@ if $SLIMMING; then
     # Support tools
     rm -rf $ORACLE_HOME/suptools && \
     # Temp location
-    rm -rf /tmp/* && \
+    # rm -rf /tmp/* && \
     # Database files directory
     rm -rf $INSTALL_DIR/database
 fi
