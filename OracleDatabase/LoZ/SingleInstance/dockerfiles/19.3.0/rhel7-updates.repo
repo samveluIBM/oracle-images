@@ -1,0 +1,58 @@
+#DESCR RHEL 7 Updates
+
+[RHEL7-HA]
+name=RHEL 7 HighAvailablilty - $basearch
+baseurl=http://nis/yum/map/rhel/$basearch/7x/ha
+enabled=1
+gpgcheck=0
+skip_if_unavailable=1
+
+
+[RHEL7-Optional]
+name=RHEL 7 Optional - $basearch
+baseurl=http://nis/yum/map/rhel/$basearch/7x/optional
+enabled=1
+gpgcheck=0
+skip_if_unavailable=1
+
+[RHEL7-OS]
+name=RHEL 7 OS - $basearch
+baseurl=http://nis/yum/map/rhel/$basearch/7x/os
+enabled=1
+gpgcheck=0
+skip_if_unavailable=1
+
+[RHEL7-ResilientStorage]
+name=RHEL 7 ResilientStorage - $basearch
+baseurl=http://nis/yum/map/rhel/$basearch/7x/rs
+enabled=1
+gpgcheck=0
+skip_if_unavailable=1
+
+[RHEL7-Supplemental]
+name=RHEL 7 Supplemental - $basearch
+baseurl=http://nis/yum/map/rhel/$basearch/7x/supplementary
+enabled=1
+gpgcheck=0
+skip_if_unavailable=1
+
+[RHEL7-Updates]
+name=RHEL 7 updates - $basearch
+baseurl=http://nis/yum/map/rhel/$basearch/7x/updates
+enabled=1
+gpgcheck=0
+
+[RHEL7-sap]
+name=RHEL 7 sap - $basearch
+baseurl=http://nis/yum/map/rhel/$basearch/7x/sap
+enabled=1
+gpgcheck=0
+skip_if_unavailable=1
+
+[RHEL7-Extras]
+name=RHEL 7 Extras - $basearch
+baseurl=http://nis/yum/map/rhel/$basearch/7x/extras
+enabled=1
+gpgcheck=0
+skip_if_unavailable=1
+
