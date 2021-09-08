@@ -5,7 +5,7 @@
 # ORACLE DOCKERFILES PROJECT
 # --------------------------
 # This is the Dockerfile for Oracle Database 19c
-# 
+#
 # REQUIRED FILES TO BUILD THIS IMAGE
 # ----------------------------------
 # (1) db_home.zip
@@ -15,8 +15,8 @@
 # HOW TO BUILD THIS IMAGE
 # -----------------------
 # Put all downloaded files in the same directory as this Dockerfile
-# Run: 
-#      $ docker build -t oracle/database:19.3.0-${EDITION} . 
+# Run:
+#      $ docker build -t oracle/database:19.3.0-${EDITION} .
 #
 # Pull base image
 # ---------------
@@ -37,6 +37,7 @@ LABEL "provider"="Oracle"                                               \
       "port.oemexpress"="5500"
 
 # Argument to control removal of components not needed after db software installation
+
 ARG SLIMMING=true
 
 # Environment variables required for this build (do NOT change)
@@ -75,6 +76,21 @@ ENV PATH=$ORACLE_HOME/bin:$ORACLE_HOME/OPatch/:/usr/sbin:$PATH \
 
 # Copy files needed during both installation and runtime
 # -------------
+
+COPY ora-val-rpm-RH7-DB-19c-19.0.1-1.s390x.rpm /ora-val-rpm-RH7-DB-19c-19.0.1-1.s390x.rpm
+
+COPY *.repo /etc/yum.repos.d/
+
+COPY 98-oracle-kernel.conf /etc/sysctl.d/98-oracle-kernel.conf
+COPY 99-grid-oracle-limits.conf /etc/security/limits.d/99-grid-oracle-limits.conf
+
+# RUN sysctl --system
+
+RUN    yum install -y ora-val-rpm-RH7-DB-19c-19.0.1-1.s390x.rpm
+RUN    yum install -y unzip
+RUN    yum install -y glibc-devel
+RUN    yum install -y hostname
+
 COPY $SETUP_LINUX_FILE $CHECK_SPACE_FILE $INSTALL_DIR/
 COPY $RUN_FILE $START_FILE $CREATE_DB_FILE $CONFIG_RSP $PWD_FILE $CHECK_DB_FILE $USER_SCRIPTS_FILE $RELINK_BINARY_FILE $ORACLE_BASE/
 
@@ -97,6 +113,7 @@ FROM base AS builder
 ARG DB_EDITION
 
 # Copy DB install file
+
 COPY --chown=oracle:dba $INSTALL_FILE_1 $INSTALL_RSP $INSTALL_DB_BINARIES_FILE $INSTALL_DIR/
 
 # Install DB software binaries
@@ -128,5 +145,6 @@ WORKDIR /home/oracle
 HEALTHCHECK --interval=1m --start-period=5m \
    CMD "$ORACLE_BASE/$CHECK_DB_FILE" >/dev/null || exit 1
 
-# Define default command to start Oracle Database. 
+# Define default command to start Oracle Database.
 CMD exec $ORACLE_BASE/$RUN_FILE
+
