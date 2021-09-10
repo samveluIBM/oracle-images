@@ -25,8 +25,6 @@ ln -s $ORACLE_BASE/scripts /docker-entrypoint-initdb.d && \
 mkdir $ORACLE_BASE/oradata && \
 mkdir -p $ORACLE_HOME && \
 chmod ug+x $ORACLE_BASE/*.sh && \
-# yum -y install oracle-database-preinstall-19c openssl && \
- yum -y install ora-val-rpm-RH7-DB-19c-19.0.1-1.s390x.rpm openssl && \
 rm -rf /var/cache/yum && \
 ln -s $ORACLE_BASE/$PWD_FILE /home/oracle/ && \
 echo oracle:oracle | chpasswd && \
