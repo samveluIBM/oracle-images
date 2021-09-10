@@ -86,9 +86,7 @@ COPY 99-grid-oracle-limits.conf /etc/security/limits.d/99-grid-oracle-limits.con
 
 # RUN sysctl --system
 
-RUN    yum install -y ora-val-rpm-RH7-DB-19c-19.0.1-1.s390x.rpm
-RUN    yum install -y unzip file hostname glibc-devel
-
+RUN    yum install -y ora-val-rpm-RH7-DB-19c-19.0.1-1.s390x.rpm unzip file openssl
 
 COPY $SETUP_LINUX_FILE $CHECK_SPACE_FILE $INSTALL_DIR/
 COPY $RUN_FILE $START_FILE $CREATE_DB_FILE $CONFIG_RSP $PWD_FILE $CHECK_DB_FILE $USER_SCRIPTS_FILE $RELINK_BINARY_FILE $ORACLE_BASE/
