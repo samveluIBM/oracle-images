@@ -13,9 +13,9 @@
 # Setup filesystem and oracle user
 # Adjust file permissions, go to /opt/oracle as user 'oracle' to proceed with Oracle installation
 # ------------------------------------------------------------
-# groupadd    --gid 54321 oinstall && \
-# groupadd    --gid 54322 dba && \
-# useradd --uid 54321 --gid oinstall --groups dba  oracle && \
+groupadd    --gid 54321 oinstall && \
+groupadd    --gid 54322 dba && \
+useradd --uid 54321 --gid oinstall --groups dba  oracle && \
 
 mkdir -p $ORACLE_BASE/scripts/setup && \
 mkdir $ORACLE_BASE/scripts/startup && \
