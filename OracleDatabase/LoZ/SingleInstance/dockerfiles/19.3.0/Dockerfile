@@ -77,7 +77,7 @@ ENV PATH=$ORACLE_HOME/bin:$ORACLE_HOME/OPatch/:/usr/sbin:$PATH \
 # Copy files needed during both installation and runtime
 # -------------
 
-#  COPY ora-val-rpm-RH7-DB-19c-19.0.1-1.s390x.rpm /ora-val-rpm-RH7-DB-19c-19.0.1-1.s390x.rpm
+COPY ora-val-rpm-RH7-DB-19c.s390x.rpm /ora-val-rpm-RH7-DB-19c.s390x.rpm
 
 COPY *.repo /etc/yum.repos.d/
 
