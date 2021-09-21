@@ -81,8 +81,8 @@ COPY ora-val-rpm-RH7-DB-19c-19.0.1-1.s390x.rpm /ora-val-rpm-RH7-DB-19c-19.0.1-1.
 
 COPY *.repo /etc/yum.repos.d/
 
-COPY 98-oracle-kernel.conf /etc/sysctl.d/98-oracle-kernel.conf
-COPY 99-grid-oracle-limits.conf /etc/security/limits.d/99-grid-oracle-limits.conf
+# COPY 98-oracle-kernel.conf /etc/sysctl.d/98-oracle-kernel.conf
+# COPY 99-grid-oracle-limits.conf /etc/security/limits.d/99-grid-oracle-limits.conf
 
 # RUN sysctl --system
 
